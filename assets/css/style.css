@@ -1,0 +1,33 @@
+.jumbotron {
+  background-image: url("../images/background.png");
+  background-width: 100%;
+  background-repeat: no-repeat;
+  max-width: 700px;
+  height: 350px;
+  position: relative;
+  top: 200px;
+}
+
+.img-rounded{
+  background: url("../images/pokeball.png") no-repeat center;
+}
+
+.active-pokemon-img{
+  position: absolute;
+  bottom: 0;
+
+}
+
+.active-pokemon-img img{
+  width: 200px;
+}
+
+.active-enemy{
+  position: absolute;
+  right: 10px;
+
+}
+
+.active-enemy img{
+  width: 150px;
+}
