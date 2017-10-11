@@ -1,11 +1,12 @@
 
 $(document).ready(function(){
+
 	//create objects for characters
 var characters = [
-{name: "Pikachu", type: "electric", hp: 180, attack: 15, defense: 10, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"0\" id=\"pikachu\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/pikachu.png\" alt=\"Pikachu\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif\" alt=\"Pikachu\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif\" alt=\"Pikachu\">"},
-{name: "Bulbasaur", type: "grass", hp: 200, attack: 10, defense: 15, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"1\" id=\"bulbasaur\"><img src=\"https://img.pokemondb.net/sprites/x-y/normal/bulbasaur.png\" alt=\"Bulbasaur\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/bulbasaur.gif\" alt=\"Bulbasaur\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif\" alt=\"Bulbasaur\">"},
-{name: "Squirtle", type: "water", hp: 198, attack: 14, defense: 12, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"2\" id=\"squirtle\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/squirtle.png\" alt=\"Squirtle\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif\" alt=\"Squirtle\">", enemyImg:"<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif\" alt=\"Squirtle\">"},
-{name: "Charmander", type: "fire", hp: 188, attack: 16, defense: 14, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"3\" id=\"charmander\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/charmander.png\" alt=\"Charmander\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif\" alt=\"Charmander\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif\" alt=\"Charmander\">"}
+{name: "Pikachu", type: "electric", hp: 180, attack: 13, defense: 19, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"0\" id=\"pikachu\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/pikachu.png\" alt=\"Pikachu\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif\" alt=\"Pikachu\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif\" alt=\"Pikachu\">"},
+{name: "Bulbasaur", type: "grass", hp: 200, attack: 10, defense: 19, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"1\" id=\"bulbasaur\"><img src=\"https://img.pokemondb.net/sprites/x-y/normal/bulbasaur.png\" alt=\"Bulbasaur\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/bulbasaur.gif\" alt=\"Bulbasaur\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif\" alt=\"Bulbasaur\">"},
+{name: "Squirtle", type: "water", hp: 170, attack: 14, defense: 18, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"2\" id=\"squirtle\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/squirtle.png\" alt=\"Squirtle\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif\" alt=\"Squirtle\">", enemyImg:"<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif\" alt=\"Squirtle\">"},
+{name: "Charmander", type: "fire", hp: 178, attack: 12, defense: 17, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"3\" id=\"charmander\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/charmander.png\" alt=\"Charmander\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif\" alt=\"Charmander\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif\" alt=\"Charmander\">"}
 ]
 
 var activeChar = false;
@@ -16,7 +17,8 @@ var myPokemonHP = "";
 var enemyHP = "";
 var myPokemonAttack = "";
 var enemyAttack = "";
-
+var oponentTitle = "<a href=\"https://fontmeme.com/pokemon-font/\"><img src=\"https://fontmeme.com/permalink/171011/dd105b1664cf9642399104a3e9ca37ee.png\" alt=\"pokemon-font\" border=\"0\"></a>";
+var pokemonFightTitle = "<a href=\"https://fontmeme.com/pokemon-font/\"><img src=\"https://fontmeme.com/permalink/171011/ee0bc67b331ef62f624ec12a95ccca9e.png\" alt=\"pokemon-font\" border=\"0\"></a>";
 
 function wait(ms) {
   		return new Promise(resolve => setTimeout(resolve, ms));
@@ -50,6 +52,7 @@ $("#pikachu").on("click", function(){
 		$(this).removeClass("fadeInDown");
 		$(this).addClass("fadeInLeft");
 		$("#char").append($(this).show());
+		$("#main-title").html(oponentTitle);
 		pickEnemy(characters[0].name);
 
 	}
@@ -66,6 +69,7 @@ charactersCol.on("click", "div#bulbasaur", function(){
 		$(this).removeClass("fadeInDown");
 		$(this).addClass("fadeInLeft");
 		$("#char").append($(this).show());
+		$("#main-title").html(oponentTitle);
 		pickEnemy(characters[1].name);
 
 	}
@@ -82,6 +86,7 @@ charactersCol.on("click", "div#squirtle", function(){
 		$(this).removeClass("fadeInDown");
 		$(this).addClass("fadeInLeft");
 		$("#char").append($(this).show());
+		$("#main-title").html(oponentTitle);
 		pickEnemy(characters[2].name);
 	}
 	myPokemon = chosenChar(characters[2]);
@@ -97,6 +102,7 @@ charactersCol.on("click", "div#charmander", function(){
 		$(this).removeClass("fadeInDown");
 		$(this).addClass("fadeInLeft");
 		$("#char").append($(this).show());
+		$("#main-title").html(oponentTitle);
 		pickEnemy(characters[3].name);
 	}
 	myPokemon = chosenChar(characters[3]);
@@ -115,6 +121,7 @@ charactersCol.on("click", "div.enemy0", function(){
 		$(this).addClass("fadeInLeft");
 		$("#enemy").append($(this).show());
 		showAttack();
+		$("#main-title").html(pokemonFightTitle);
 		isEnemyChosen = true;
 		enemyPokemon = characters[0];
 	}
@@ -129,6 +136,7 @@ charactersCol.on("click", "div.enemy1", function(){
 		$(this).addClass("fadeInLeft");
 		$("#enemy").append($(this).show());
 		showAttack();
+		$("#main-title").html(pokemonFightTitle);
 		isEnemyChosen = true;
 		enemyPokemon = characters[1];
 	}
@@ -142,6 +150,7 @@ charactersCol.on("click", "div.enemy2", function(){
 		$(this).addClass("fadeInLeft");
 		$("#enemy").append($(this).show());
 		showAttack();
+		$("#main-title").html(pokemonFightTitle);
 		isEnemyChosen = true;
 		enemyPokemon = characters[2];
 	}
@@ -155,6 +164,7 @@ charactersCol.on("click", "div.enemy3", function(){
 		$(this).addClass("fadeInLeft");
 		$("#enemy").append($(this).show());
 		showAttack();
+		$("#main-title").html(pokemonFightTitle);
 		isEnemyChosen = true;
 		enemyPokemon = characters[3];
 	}
@@ -203,6 +213,7 @@ $("#attack").hide();
 
 function showAttack(){
 	$("#attack").show();
+
 }
 
 //attack motion
@@ -213,37 +224,69 @@ $(".active-enemy").animate({left: "-=50"}, 300);
 $(".active-enemy").animate({left: "+=50"}, 300);
 }
 
+//remove enemy
 
+function enemyDefeated(){
+	$(".active-enemy").empty();
+	$("#enemy").empty();
+	isEnemyChosen = false;
+	$("#main-title").html(oponentTitle);
+	
+}
+
+//last oponent won game
+function lastOponent() {
+	$(".active-enemy").empty();
+	$("#enemy").empty();
+	alert("You have defeated all your enemies. Good Job!");
+	location.reload();
+}
+
+var counter = 1;
+var defeated = 0;
 //attack
+
 $("#attack").on("click", function(){
-attackMotion();
-myPokemonHP = myPokemon.hp;
-enemyHP = enemyPokemon.hp;
-myPokemonAttack = myPokemon.attack;
+	if(isEnemyChosen === true){
+		attackMotion();
+var audio = document.getElementById("punch");
+audio.play();
 
 //logic of the game
-if(enemyPokemon.hp > 0){
-	enemyPokemon.hp = enemyPokemon.hp - (myPokemon.attack);
 
-}else{
+if(enemyPokemon.hp > 0){
+	enemyPokemon.hp = enemyPokemon.hp - (myPokemon.attack * counter);
+
+}else if(enemyPokemon.hp <= 0){
 	alert(enemyPokemon.name + " has fainted");
+	defeated = defeated + 1;
+	if(defeated !== 3){
+		enemyDefeated();
+	}else{
+		lastOponent();
+	}
+	
+
 }
 
 if(myPokemon.hp > 0){
 	myPokemon.hp = myPokemon.hp - enemyPokemon.defense;
 }else{
-	alert(myPokemon.name + " has fainted");
+	alert("Your" + myPokemon.name + " has fainted");
+	location.reload();
 }
-console.log(myPokemon);
-console.log(enemyPokemon);
 
+
+counter = counter + 1;
+
+	}
 
 
 })
 
 
 
-});
+});//end of script
 
 
 
