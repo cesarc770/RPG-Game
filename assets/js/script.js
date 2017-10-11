@@ -1,6 +1,13 @@
 
 $(document).ready(function(){
 
+//handling background song
+var myAudio = document.getElementById("background");
+var isPlaying = false;
+myAudio.play();
+$('#music-button').on("click", function(){
+	myAudio.pause();
+});
 	//create objects for characters
 var characters = [
 {name: "Pikachu", type: "electric", hp: 180, attack: 13, defense: 19, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"0\" id=\"pikachu\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/pikachu.png\" alt=\"Pikachu\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif\" alt=\"Pikachu\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif\" alt=\"Pikachu\">"},
