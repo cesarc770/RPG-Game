@@ -43,6 +43,14 @@ body{
   margin-top: 100px;
 }
 
+.progress{
+  margin-bottom: 0;
+}
+
+#attack{
+  padding: 20px;
+}
+
 @media screen and (max-width: 640px) {
 
 #main-title img{
