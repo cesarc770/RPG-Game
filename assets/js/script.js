@@ -257,7 +257,6 @@ function enemyDefeated(){
 	$(".active-enemy").empty();
 	$("#enemy").empty();
 	$(".fainted-message").fadeOut();
-	isEnemyChosen = false;
 	$("#main-title").html(oponentTitle);
 	
 }
@@ -291,6 +290,7 @@ if(enemyPokemon.hp > 0){
 }
 if(enemyPokemon.hp <= 0){
 	message.html("<p class=\"fainted-message\">" + enemyPokemon.name + " has fainted</p>");
+	isEnemyChosen = false;
 	defeated = defeated + 1;
 	if(defeated !== 3){
 		setTimeout(function(){enemyDefeated()},2000);
