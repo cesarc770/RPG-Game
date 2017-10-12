@@ -16,6 +16,7 @@ $('#music-button').on("click", function(){
 	
 });
 
+
 	//create objects for characters
 var characters = [
 {name: "Pikachu", type: "electric",maxhp:180, hp: 180, attack: 8, defense: 15, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"0\" id=\"pikachu\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/pikachu.png\" alt=\"Pikachu\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif\" alt=\"Pikachu\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif\" alt=\"Pikachu\">"},
@@ -254,9 +255,11 @@ $(".active-enemy").fadeIn(100);
 //remove enemy
 
 function enemyDefeated(){
+	var defeated = document.getElementById("fainted");
 	$(".active-enemy").empty();
 	$("#enemy").empty();
 	$(".fainted-message").fadeOut();
+	defeated.play();
 	$("#main-title").html(oponentTitle);
 	
 }
