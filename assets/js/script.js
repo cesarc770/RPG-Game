@@ -246,8 +246,8 @@ function showAttack(){
 function attackMotion(){
 $("#chosen-character").animate({left: "+=50"}, 300);
 $("#chosen-character").animate({left: "-=50"}, 300);
-$(".active-enemy").animate({left: "-=5%"}, 300);
-$(".active-enemy").animate({left: "+=5%"}, 300);
+$(".active-enemy").fadeOut(100);
+$(".active-enemy").fadeIn(100);
 }
 
 //remove enemy
