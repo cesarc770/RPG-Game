@@ -146,6 +146,7 @@ charactersCol.on("click", "div.enemy0", function(){
 		$(".enemy-bar").css("width", "100%");
 		isEnemyChosen = true;
 		enemyPokemon = characters[0];
+		appear();
 	}
 })
 
@@ -162,6 +163,7 @@ charactersCol.on("click", "div.enemy1", function(){
 		$(".enemy-bar").css("width", "100%");
 		isEnemyChosen = true;
 		enemyPokemon = characters[1];
+		appear();
 	}
 })
 charactersCol.on("click", "div.enemy2", function(){
@@ -177,6 +179,7 @@ charactersCol.on("click", "div.enemy2", function(){
 		$(".enemy-bar").css("width", "100%");
 		isEnemyChosen = true;
 		enemyPokemon = characters[2];
+		appear();
 	}
 })
 charactersCol.on("click", "div.enemy3", function(){
@@ -192,6 +195,7 @@ charactersCol.on("click", "div.enemy3", function(){
 		$(".enemy-bar").css("width", "100%");
 		isEnemyChosen = true;
 		enemyPokemon = characters[3];
+		appear();
 	}
 })
 
@@ -275,7 +279,11 @@ function lastOponent() {
 var counter = 1;
 var defeated = 0;
 
-
+//function to show message when pokemon first appears
+function appear(){
+	message.html("<p class=\"appeared-message\"> A wild " + enemyPokemon.name + " has appeared!</p>")
+	setTimeout(function() {$(".appeared-message").fadeOut(1500);}, 1000);
+}
 
 //attack function when clicking on attack button
 $("#attack").on("click", function(){
