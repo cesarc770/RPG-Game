@@ -4,6 +4,8 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  color: white;
+  font-family: 'Press Start 2P',sans-serif;
   }
 .jumbotron {
   background-image: url("../images/background.png");
