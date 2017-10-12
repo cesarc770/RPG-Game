@@ -82,6 +82,15 @@ body{
     height: 10px;
 }
 .buttons-col{
+      margin-top: 0;
       padding: 10px;
+}
+
+#fight{
+      margin-top: 20px;
+}
+
+.char-container{
+  margin-top: 20px;
 }
 }
