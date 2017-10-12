@@ -19,9 +19,9 @@ $('#music-button').on("click", function(){
 	//create objects for characters
 var characters = [
 {name: "Pikachu", type: "electric",maxhp:180, hp: 180, attack: 8, defense: 15, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"0\" id=\"pikachu\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/pikachu.png\" alt=\"Pikachu\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif\" alt=\"Pikachu\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif\" alt=\"Pikachu\">"},
-{name: "Bulbasaur", type: "grass",maxhp:200, hp: 200, attack: 6, defense: 16, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"1\" id=\"bulbasaur\"><img src=\"https://img.pokemondb.net/sprites/x-y/normal/bulbasaur.png\" alt=\"Bulbasaur\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/bulbasaur.gif\" alt=\"Bulbasaur\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif\" alt=\"Bulbasaur\">"},
-{name: "Squirtle", type: "water",maxhp:170, hp: 170, attack: 8, defense: 15, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"2\" id=\"squirtle\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/squirtle.png\" alt=\"Squirtle\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif\" alt=\"Squirtle\">", enemyImg:"<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif\" alt=\"Squirtle\">"},
-{name: "Charmander", type: "fire",maxhp:178, hp: 178, attack: 7, defense: 18, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"3\" id=\"charmander\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/charmander.png\" alt=\"Charmander\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif\" alt=\"Charmander\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif\" alt=\"Charmander\">"}
+{name: "Bulbasaur", type: "grass",maxhp:200, hp: 200, attack: 7, defense: 16, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"1\" id=\"bulbasaur\"><img src=\"https://img.pokemondb.net/sprites/x-y/normal/bulbasaur.png\" alt=\"Bulbasaur\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/bulbasaur.gif\" alt=\"Bulbasaur\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif\" alt=\"Bulbasaur\">"},
+{name: "Squirtle", type: "water",maxhp:170, hp: 170, attack: 10, defense: 14, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"2\" id=\"squirtle\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/squirtle.png\" alt=\"Squirtle\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif\" alt=\"Squirtle\">", enemyImg:"<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif\" alt=\"Squirtle\">"},
+{name: "Charmander", type: "fire",maxhp:178, hp: 178, attack: 7, defense: 17, image: "<div class=\"btn img-rounded animated fadeInDown\" data-index-number=\"3\" id=\"charmander\"><img src=\"https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/charmander.png\" alt=\"Charmander\"></div>", chosenImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif\" alt=\"Charmander\">", enemyImg: "<img src=\"https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif\" alt=\"Charmander\">"}
 ]
 
 var activeChar = false;
@@ -35,6 +35,7 @@ var enemyAttack = "";
 var oponentTitle = "<a href=\"https://fontmeme.com/pokemon-font/\"><img src=\"https://fontmeme.com/permalink/171011/dd105b1664cf9642399104a3e9ca37ee.png\" alt=\"pokemon-font\" border=\"0\"></a>";
 var pokemonFightTitle = "<a href=\"https://fontmeme.com/pokemon-font/\"><img src=\"https://fontmeme.com/permalink/171011/ee0bc67b331ef62f624ec12a95ccca9e.png\" alt=\"pokemon-font\" border=\"0\"></a>";
 var button = "<button type=\"button\" class=\"btn btn-info btn-lg\" data-toggle=\"modal\" data-target=\"#myModal\">Open Modal</button>";
+var message = $("#message-container");
 
 function wait(ms) {
   		return new Promise(resolve => setTimeout(resolve, ms));
@@ -255,6 +256,7 @@ $(".active-enemy").fadeIn(100);
 function enemyDefeated(){
 	$(".active-enemy").empty();
 	$("#enemy").empty();
+	$(".fainted-message").fadeOut();
 	isEnemyChosen = false;
 	$("#main-title").html(oponentTitle);
 	
@@ -264,8 +266,8 @@ function enemyDefeated(){
 function lastOponent() {
 	$(".active-enemy").empty();
 	$("#enemy").empty();
-	alert("You have defeated all your enemies. Good Job!");
-	location.reload();
+	message.html("You have defeated all the wild Pokemon!. Good Job!");
+	setTimeout(function(){location.reload()},2000);
 }
 
 var counter = 1;
@@ -278,6 +280,7 @@ $("#attack").on("click", function(){
 	if(isEnemyChosen === true){
 		attackMotion();
 var audio = document.getElementById("punch");
+
 audio.play();
 
 //logic of the game
@@ -287,10 +290,10 @@ if(enemyPokemon.hp > 0){
 	reduceEnemyHP();
 }
 if(enemyPokemon.hp <= 0){
-	alert(enemyPokemon.name + " has fainted");
+	message.html("<p class=\"fainted-message\">" + enemyPokemon.name + " has fainted</p>");
 	defeated = defeated + 1;
 	if(defeated !== 3){
-		enemyDefeated();
+		setTimeout(function(){enemyDefeated()},2000);
 	}else{
 		lastOponent();
 	}
@@ -300,9 +303,10 @@ if(enemyPokemon.hp <= 0){
 if(myPokemon.hp > 0){
 	myPokemon.hp = myPokemon.hp - enemyPokemon.defense;
 	reducePokemonHP();
-}else{
-	alert("Your" + myPokemon.name + " has fainted");
-	location.reload();
+}
+if(myPokemon.hp <=0){
+	message.html("<p>Your " + myPokemon.name + " has fainted!.. Better luck next time!</p>");
+	setTimeout(function(){location.reload()},3000);
 }
 
 counter = counter + 1;

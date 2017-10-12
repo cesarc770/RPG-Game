@@ -10,9 +10,10 @@ body{
   background-width: 100%;
   background-repeat: no-repeat;
   max-width: 800px;
-  height: 350px;
+  height: 250px;
   position: relative;
   top: 100px;
+  border-bottom: 6px lightgrey solid;
 }
 
 .img-rounded{
@@ -39,16 +40,22 @@ body{
   width: 150px;
 }
 
-#fight{
-  margin-top: 100px;
-}
-
 .progress{
   margin-bottom: 0;
 }
 
 #attack{
   padding: 20px;
+}
+
+#message-container{
+  max-width: 800px;
+  height: 150px;
+  border: 7px lightgrey solid;
+  color: black;
+  background-color: white;
+  padding-top: 60px;
+  font-size: 26px;
 }
 
 @media screen and (max-width: 640px) {
@@ -100,5 +107,8 @@ body{
 
 .char-container{
   margin-top: 20px;
+}
+#message-container{
+  font-size: 16px;
 }
 }
