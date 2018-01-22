@@ -4,7 +4,7 @@ One of my first tries to make a cool game. I developed a simple logic to be able
 
 ## Getting Started
 
-![Screenshot](Pokemon RPG.png)
+![Alt text](https://github.com/cesarc770/RPG-Game/blob/master/Pokemon%20RPG.png)
 
 ### Prerequisites and Installing
 
